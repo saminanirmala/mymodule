@@ -301,6 +301,7 @@ class User extends CI_Controller {
 	{
 		if (!$code)
 		{
+                
 			show_404();
 		}
 
