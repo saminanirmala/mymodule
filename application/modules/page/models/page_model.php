@@ -20,7 +20,7 @@ class Page_model extends CI_Model {
     }
     
     public function insertSubPage($data) {
-        $this->db->insert(Page_model::Table, $data);
+        $this->db->insert(Page_model::table, $data);
     }
     /*
      * @retrieve all page
@@ -28,7 +28,7 @@ class Page_model extends CI_Model {
 
     public function getAllPage() {
 
-        $query = $this->db->get_where(Page_model::table, array('parentid' => 0));
+        $query = $this->db->get_where(Page_model::table, array('parent_id' => 0));
         return $query->result();
     }
 

@@ -82,6 +82,7 @@ class Page extends MX_Controller {
     
     public function addsubpage(){
     $data['getallpage'] = $this->page_model->getAllPage();
+
     if($_POST){
         $data=array(
           'sub_page'=>$this->input->post('subpage'),
