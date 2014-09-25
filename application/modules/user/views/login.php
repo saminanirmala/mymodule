@@ -7,7 +7,7 @@
         <form name="" method="POST">
             <?php echo validation_errors(); ?>
             Email Address:<input type="text" name="identity"><br/>
-            Password:<input type="text" name="password"><br/>
+            Password:<input type="password" name="password"><br/>
             <input type="submit" name="submit">
         </form>
         <a href="<?php echo base_url();?>user/forgot_password">Forget Password</a>
