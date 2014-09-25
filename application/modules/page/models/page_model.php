@@ -27,22 +27,19 @@ class Page_model extends CI_Model {
      */
 
     public function getAllPage() {
-        $sql = $this->db->get(Page_model::table);
-        $res = $sql->result_array();
-        return $res;
+
+        $query = $this->db->get_where(Page_model::table, array('parentid' => 0));
+        return $query->result();
     }
-    
-    public function getsubpage(){
-        $this->db->select('page_id','page_title');
-        $this->db->get_where(Page_model::table,array('parent_id',0));
-        $pages=$this->db->get();
-        $data=array(0=>'No parents');
-            if(count($pages)){
-            foreach ($pages as $page){
-                $data[$page->page_id]=$page->title;
-            }
-            }
+
+    function getSubPages($page_id) {
+        $this->db->select('*');
+        $this->db->from(Page_model::table);
+        $this->db->where(array('parent_id' => $page_id));
+        $query = $this->db->get();
+        return $query->result();
     }
+
     /*
      * @retrieve single page
      */

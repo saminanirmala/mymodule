@@ -94,13 +94,12 @@ class Page extends MX_Controller {
     
 }
 public function subpagelist(){
-    $data['allsubpage']=$this->page_model->getsubpage();
-    print_r($data);die();
+    $data['allsubpage']=$this->page_model->getSubPages($page_id);
     $this->load->view('pagetitle',$data);
 }
 public function view(){
      $data['getallpage'] = $this->page_model->getAllPage(); 
-        $data['allsubpage']=$this->page_model->getsubpage();
+        $data['allsubpage']=$this->page_model->getSubPages($page_id);
         $this->load->view('pagetitle',$data);
 }
 
